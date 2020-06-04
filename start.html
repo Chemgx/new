@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>diomedes2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+            }
+
+            header {
+                width: 100%;
+                height: 50px;
+                background: #1A2940;
+                color: #fff;
+            }
+
+            menu {}
+
+            menu .menu-item {
+                position: relative;
+            }
+
+            menu .menu-item>input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 46px;
+                opacity: 0;
+                cursor: pointer;
+                font-size: 50px;
+            }
+
+            .menu-parent {
+                font-size: 19px;
+                font-weight: 500;
+                line-height: 25px;
+            }
+
+            menu span {
+                display: block;
+                padding: 5px 10px;
+                font-size: 16px;
+                line-height: 36px;
+                cursor: pointer;
+            }
+
+            .menu-item-list span:hover {
+                text-decoration-line: underline;
+            }
+
+            menu span:active {}
+
+            menu span.menu-child {
+                font-size: 14px;
+                text-indent: 24px;
+                padding-left: 20px;
+                line-height: 20px;
+                text-align: left;
+            }
+
+            menu .menu-item-list {
+                max-height: 0;
+                overflow: hidden;
+                transition: all .3s ease;
+            }
+
+            menu :checked+.menu-item-list {
+                max-height: 500px;
+            }
+
+
+
+            a,
+            a:hover,
+            a:link,
+            a:active,
+            a:focus {
+                color: black;
+                text-decoration-line: none;
+            }
+
+            .top {
+                border-bottom: 1px solid rgb(148, 175, 163);
+                margin-bottom: 20px;
+
+            }
+
+            .left {
+                width: 17%;
+                height: 100%;
+                background-color: rgb(241, 241, 241);
+                border: 1px solid rgb(224, 224, 224);
+                float: left;
+                
+                overflow: hidden;
+            }
+
+            .right {
+                width: 83%;
+                float: left;
+            }
+
+            .bot {
+                bottom: 0;
+                width: 16%;
+                position: absolute;
+                font-size: 25px;
+                border-top: 1px solid black;
+                padding-top: 20px;
+                margin: 2% auto;
+                text-align: center;
+            }
+
+            .logo1 img {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .logo2 img {
+                width: 40%;
+                margin: 13% auto 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+
+        <script type="text/javascript">
+            var menu = document.getElementsByTagName('menu-parent');
+            window.onload = function () {
+                for (var i = 0; i < menu.length; i++) {
+                    menu[i].onclick = function () {
+                        menuOnclick(this);
+                    }
+                }
+            }
+            function menuOnclick(obj) {
+                for (var j = 0; j < menu.length; j++) {
+                    if (menu[j] == obj) {
+                        menu[j].className = 'tdcolor';
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="left">
+            <div class="logo1">
+                <img src=" logo.png" alt="">
+            </div>
+            <menu>
+                <div class="menu-item">
+                    <span class="menu-parent glyphicon glyphicon-stats active"> Statistik <span
+                            class="glyphicon glyphicon-triangle-bottom"></span></span>
+                    <input type="checkbox" name="" value="">
+                    <div class="menu-item-list">
+                        <span class="menu-child">Nutzergruppenstatistik</span>
+                        <span class="menu-child">Aufgabenstatistik</span>
+                        <span class="menu-child">Nutzerstatistik</span>
+                        <span class="menu-child">Aufgabengruppenstatistik</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-parent glyphicon glyphicon-edit"> Aufgabe <span
+                            class="glyphicon glyphicon-triangle-bottom"></span></span>
+                    <input type="checkbox" name="" value="">
+                    <div class="menu-item-list">
+                        <span class="menu-child">Aufgaben löschen</span>
+                        <span class="menu-child">Aufgaben erstellen</span>
+                        <span class="menu-child">Aufgabentypen</span>
+                        <span class="menu-child">Gruppen löschen</span>
+                        <span class="menu-child">Gruppen anlegen</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-parent glyphicon glyphicon-user"> Nutzer <span
+                            class="glyphicon glyphicon-triangle-bottom"></span></span>
+                    <input type="checkbox" name="" value="">
+                    <div class="menu-item-list">
+                        <span class="menu-child">Nutzerübersicht</span>
+                        <span class="menu-child">Nutzer anlegen</span>
+                        <span class="menu-child">Nutzergruppenübersicht</span>
+                        <span class="menu-child">Nutzergruppen anlegen</span>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-parent glyphicon glyphicon-briefcase"> Administratoren</span>
+                </div>
+            </menu>
+            <div class="bot">
+                <a href="#" class="glyphicon glyphicon-log-out"> logout</a>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="top text-center">
+                <h3>Fachgebiet Datenbanken und Informationssysteme</h3>
+                <h3>-Diomedes 2.0-</h3>
+            </div>
+
+            <div class="content ">
+                <h2>&nbsp;&nbsp;Herzlich Willkommen</h2>
+            </div>
+            <br>
+            <br>
+            <div style="border:1px solid rgb(179, 179, 179); border-radius: 10px; padding: 0 0 0 10px; margin: 0 10px;">
+                <h3>das Administrationsmenü steht Ihnen zur Verfügung. Um die einzelnen Funktionien zu erreichen,
+                    klicken Sie einfach links in der Navigationsleiste auf den gewünschten Bereich. </h3>
+            </div>
+            <div class="logo2">
+                <img src="Ilmenau.jpg" alt="">
+            </div>
+        </div>
+
+
+
+    </body>
+
+</html>
